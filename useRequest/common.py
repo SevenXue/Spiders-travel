@@ -9,7 +9,7 @@ def getHTML(url):
         r.encoding = r.apparent_encoding
         return r.text
     except:
-        return"产生异常"
+        return "产生异常"
 
 if __name__ == '__main__':
     url = ""
