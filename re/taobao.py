@@ -16,4 +16,10 @@ def main():
     start_url = 'https://s.taobao.com/search?q=' + goods
     infoList = []
     for i in range(depth):
-        infoList[i] = i*44
+        try:
+            url = start_url + '&s=' + str(i*44)
+            html = getHtmlText(url)
+            parsePage(infoList, html)
+        except:
+            continue
+            
