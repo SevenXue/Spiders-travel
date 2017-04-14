@@ -1,12 +1,9 @@
-# -*- coding:utf-8 -*-
 
 import re
 import requests
 from bs4 import BeautifulSoup
 import bs4
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 
 def getHTMLText(url):
     try:
@@ -23,13 +20,15 @@ def fillUnivList(ulist, html):
         if isinstance(tr, bs4.element.Tag):
             tds = tr('td')
             ulist.append([tds[0].string, tds[1].string, tds[2].string])
-    print  ulist[0][1]
+    #print  ulist[0][1]
 
 def printUnivList(ulist, num):
-    print("{:^10}\t{:^6}\t{:^10}".format(u'排名',u'学校名称',u'得分'))
+    tplt = "{0:^10}\t{1:{3}^6}\t{2:^10}"
+    # 使用chr解决中文对齐的问题
+    print(tplt.format('排名','学校名称','得分', chr(12288)))
     for i in range(num):
         u = ulist[i]
-        print("{:^10}\t{:^6}\t{:^10}".format(u[0], u[1], u[2]))
+        print(tplt.format(u[0], u[1], u[2], chr(12288)))
 
 
 if __name__ == '__main__':
@@ -37,5 +36,4 @@ if __name__ == '__main__':
     url = "http://www.zuihaodaxue.com/zuihaodaxuepaiming2016.html"
     html = getHTMLText(url)
     fillUnivList(uinfo, html)
-    printUnivList(uinfo, 1)
-    print('失败')
+    printUnivList(uinfo, 20)
