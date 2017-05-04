@@ -14,12 +14,17 @@ def getHtmlText(url):
 
 def parsePage(ilt, html):
     try:
+
         plt = re.findall(r'"view_price":"(\d+\.\d+)"', html)
         tlt = re.findall(r'"raw_title":"(.*?)"', html)
         for i in range(len(plt)):
             price = plt[i]
             title = tlt[i]
             ilt.append([price,title])
+        '''
+        plt = re.search(r'"view_price":"(\d+\.\d+)"', html)
+        tlt = re.search(r'"raw_title":"(.*?)"', html)
+        '''
     except:
         print("error")
 
