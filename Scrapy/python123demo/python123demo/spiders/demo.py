@@ -12,4 +12,4 @@ class DemoSpider(scrapy.Spider):
         with open(fname, 'wb') as f:
             f.write(response.body)
         self.log('Save file %s.' % fname)
-        
+
