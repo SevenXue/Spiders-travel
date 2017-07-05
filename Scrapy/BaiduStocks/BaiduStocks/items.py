@@ -1,4 +1,4 @@
- # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Define here the models for your scraped items
 #
@@ -8,7 +8,7 @@
 import scrapy
 
 
-class Python123DemoItem(scrapy.Item):
+class BaidustocksItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
